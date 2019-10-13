@@ -2,7 +2,7 @@
  * Filename:     auth.c
  *
  * Created by:	 liuqun
- * Revised by:   KiritoA
+ * Revised by:   KiritoA, UMRnInside
  * Description:  801.1X认证核心函数
  *
  */
@@ -70,7 +70,7 @@ const uint8_t BroadcastAddr[6] =
 { 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }; // 广播MAC地址
 const uint8_t MultcastAddr[6] =
 { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x03 }; // 多播MAC地址
-const char H3C_VERSION[16] = "EN\x11V7.00-0102"; // 华为客户端版本号
+const char H3C_VERSION[16] = "CH\x11V7.10-0310"; // 华为客户端版本号
 //const char H3C_KEY[64]    ="HuaWei3COM1X";  // H3C的固定密钥
 const char H3C_KEY[64] = "Oly5D62FaE94W7"; // H3C的另一个固定密钥，网友取自MacOSX版本的iNode官方客户端
 
