@@ -272,6 +272,17 @@ int got_packet(uint8_t *args, const struct pcap_pkthdr *header, const uint8_t *p
 		authProgress = AUTH_PROGRESS_DISCONNECT;
 		// 处理认证失败信息
 		
+        if (errtype == 0x08)
+        {
+			char* errMsg = (char*)malloc(msgsize + 2);
+			strncpy(errMsg, msg, msgsize);
+			errMsg[msgsize] = '\n';
+			errMsg[msgsize+1] = '\0';
+			PRINTERR("Error Type 0x08, msgsize %u, msg %s\n", (unsigned int)msgsize, errMsg);
+			free(errMsg);
+			return success ? ERR_FAILED_AFTER_SUCCESS : ERR_UNKNOWN_FAILED;
+        }
+
 		if (errtype == 0x09 && msgsize > 0)
 		{
 			char* errMsg = (char*)malloc(msgsize + 2);
